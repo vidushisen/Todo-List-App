@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="DailyFlow - A sleek black-themed Daily Planner and Routine To-Do List Web App.">
+  <title>DailyFlow | Today's Task Planner</title>
+  <!-- Google Fonts: Inter & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- App Header & Today's Date -->
+    <header class="app-header">
+      <div class="header-left">
+        <div class="logo-box">
+          <i class="fa-solid fa-sun logo-icon"></i>
+        </div>
+        <div>
+          <h1>DailyFlow</h1>
+          <p class="subtitle">Plan your day & stay focused</p>
+        </div>
+      </div>
+
+      <div class="date-badge">
+        <i class="fa-regular fa-calendar-days"></i>
+        <span id="current-date">Today</span>
+      </div>
+    </header>
+
+    <!-- Today's Progress Card -->
+    <section class="progress-card">
+      <div class="progress-header">
+        <div>
+          <h2>Today's Progress</h2>
+          <p id="progress-text">0 of 0 tasks completed</p>
+        </div>
+        <div class="percent-circle" id="percent-badge">0%</div>
+      </div>
+
+      <div class="progress-bar-track">
+        <div class="progress-bar-fill" id="progress-fill"></div>
+      </div>
+    </section>
+
+    <!-- Quick Routine Chips Bar -->
+    <section class="routine-section">
+      <span class="routine-title"><i class="fa-solid fa-bolt"></i> Quick Add Routine:</span>
+      <div class="routine-chips">
+        <button class="chip-btn" data-task="🏃 Morning Exercise"><i class="fa-solid fa-person-running"></i> Exercise</button>
+        <button class="chip-btn" data-task="📖 Read 15 mins"><i class="fa-solid fa-book-open"></i> Read</button>
+        <button class="chip-btn" data-task="💼 Focus Work / Study"><i class="fa-solid fa-laptop-code"></i> Work/Study</button>
+        <button class="chip-btn" data-task="🧘 Meditation"><i class="fa-solid fa-spa"></i> Meditate</button>
+        <button class="chip-btn" data-task="🛒 Grocery Shopping"><i class="fa-solid fa-cart-shopping"></i> Groceries</button>
+      </div>
+    </section>
+
+    <!-- Add Task Input Box -->
+    <section class="add-task-box">
+      <form id="add-task-form">
+        <div class="input-wrapper">
+          <i class="fa-solid fa-plus input-add-icon"></i>
+          <input type="text" id="task-input" placeholder="What do you want to accomplish today? (Press Enter)" required autocomplete="off">
+          
+          <button type="button" id="priority-toggle" class="btn-priority-toggle" title="Mark as Important">
+            <i class="fa-regular fa-star"></i> <span id="prio-label">Normal</span>
+          </button>
+
+          <button type="submit" class="btn-add-submit">
+            Add
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Controls & Filters -->
+    <section class="controls-row">
+      <div class="filter-group" id="filter-group">
+        <button class="filter-btn active" data-filter="all">All Tasks</button>
+        <button class="filter-btn" data-filter="active">Remaining</button>
+        <button class="filter-btn" data-filter="completed">Done</button>
+      </div>
+
+      <button id="start-new-day-btn" class="btn-reset" title="Clear completed tasks to start a fresh day">
+        <i class="fa-solid fa-rotate-right"></i> Start New Day
+      </button>
+    </section>
+
+    <!-- Tasks Checklist -->
+    <main class="tasks-wrapper">
+      <div id="task-list" class="task-list">
+        <!-- Dynamic Tasks Injected Here -->
+      </div>
+
+      <!-- Empty State -->
+      <div id="empty-state" class="empty-state hidden">
+        <div class="empty-icon"><i class="fa-regular fa-circle-check"></i></div>
+        <h3 id="empty-title">All tasks completed!</h3>
+        <p id="empty-desc">Add a new task above to start planning your day.</p>
+      </div>
+    </main>
+
+    <!-- App Footer -->
+    <footer class="app-footer">
+      <p>DailyFlow • Your Personal Daily Planner</p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
